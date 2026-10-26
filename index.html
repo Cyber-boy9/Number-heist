@@ -150,8 +150,8 @@ a.btn{text-decoration:none;display:inline-block;text-align:center}
       <div id="pay" class="paycard hidden">
         <div class="payhead">MOCHIPAY™<span>COMPLIMENT PAYOUT · 100% pretend</span></div>
         <div class="payrow"><span>to</span><b id="payTo">Walwa</b></div>
-        <div class="payrow"><span>amount</span><b>0.00 ETB</b></div>
-        <div class="payrow"><span>memo</span><b>for the compliment 🥹</b></div>
+        <div class="payrow"><span>amount</span><b>5.00 ETB</b></div>
+        <div class="payrow"><span>memo</span><b>for the compliment, keep the change tho 🥹</b></div>
         <button class="btn pink" id="payBtn">PAY 💸</button>
         <div id="payStamp" class="stamp hidden">✅ SENT<small>ID: TRUST_ME_BRO</small></div>
       </div>
@@ -647,7 +647,7 @@ async function playLevel1() {
   for (;;) {
     await overlay('LEVEL 1', 'drag to move 🐱\ncatch ⭐ · dodge the L clouds', 'START ▶');
     const r = await Game.start();
-    if (r === 'win') { Sfx.win(); burst(); await overlay('LEVEL CLEARED 🎉', NAME + ' ate that.', 'NEXT ▶'); return; }
+    if (r === 'win') { Sfx.win(); burst(); await overlay('LEVEL CLEARED 🎉', NAME + ' u is smart.', 'NEXT ▶'); return; }
     fails++;
     if (fails >= 2) { await overlay('okok 😭', "Mochi's feeling generous.\nlevel skipped. you win anyway.", 'THANKS 🥹'); return; }
     await overlay('SKILL ISSUE 💀', 'jk. run it back,\nyou got this.', 'RETRY ↻');
@@ -658,7 +658,7 @@ async function playLevel1() {
 const phone = $('#phone'), note = $('#note'), sendBtn = $('#sendBtn'), noBtn = $('#noBtn'), slot = $('#noSlot'), appEl = $('#app');
 let dodges = 0, tired = false, lastDodge = 0, dodged = false;
 const MAX_DODGES = 7;
-const TAUNTS = ['button.exe left the chat 💨', 'too slow 😭', 'it has trust issues fr', 'skill issue detected 🕵️', 'bro it said NO lol', 'this is the work 🫡', 'almost! (not really)'];
+const TAUNTS = ['button left the chat 💨', 'too slow 😭', 'it has trust issues fr', 'skill issue detected 🕵️', 'bro it said NO lol', 'this is the work 🫡', 'almost! (not really)'];
 const setHint = t => { $('#hint').textContent = t; };
 
 function placeAtSlot() {
@@ -706,7 +706,7 @@ phone.addEventListener('input', () => {
 });
 
 // Your Telegram @username, without the @. You can also override it per link: ?to=yourusername
-const TG_USER = new URLSearchParams(location.search).get('to') || 'YOUR_TELEGRAM_USERNAME';
+const TG_USER = new URLSearchParams(location.search).get('to') || 'FirafisBekele';
 let lastMsg = '';
 sendBtn.addEventListener('click', () => {
   const raw = phone.value.trim(), digits = raw.replace(/\D/g, '');
@@ -716,7 +716,7 @@ sendBtn.addEventListener('click', () => {
     return;
   }
   const extra = note.value.trim();
-  lastMsg = "Hey, it's " + NAME + ' 👋\nI beat your Number Heist game.\nMy new number: ' + raw + (extra ? '\n💬 ' + extra : '');
+  lastMsg = "Heyyyyy, it's " + NAME + ' 👋\nI beat your Number Heist game.\nMy new number: ' + raw + (extra ? '\n💬 ' + extra : '');
   // everything she typed is shown with textContent, so nothing she types can break the page
   $('#msgPreview').textContent = lastMsg;
   $('#tgLink').href = 'https://t.me/' + encodeURIComponent(TG_USER) + '?text=' + encodeURIComponent(lastMsg);
@@ -746,11 +746,11 @@ function enterFinal() {
 /* =============== STORY =============== */
 const INTRO = [
   { t: `yo {name} 👋 welcome to THE GREAT NUMBER HEIST. i'm Mochi, the cat. i'm legally required to be here.`, mood: 'happy' },
-  { t: `quick recap: you complimented his drawing. he said he'd "cash you up" for it. for a COMPLIMENT. in this economy. 💀` },
-  { t: `you said he needs to put in more work to get your number. fair. iconic. slightly rude.` },
-  { who: 'HIM 🎨', you: true, t: `"for realll? i am about to surprise you bruh"` },
+  { t: `quick recap: you complimented his drawing. he said he'd "cash you up" for it. for a COMPLIMENT. in this economy. Bruh 💀` },
+  { t: `you said he needs to put in more work to get your number. fair. iconic. slightly rude tho.` },
+  { who: 'HIM 🎨', you: true, t: `""` },
   { t: `(he already HAD the number. you caught him instantly. he's still recovering.) 😭`, mood: 'sad' },
-  { t: `so this whole website is his redemption arc. he built it at midnight instead of sleeping. this is the work. 🫡`, mood: 'happy' },
+  { t: `so this whole ass website is his redemption arc. he built it at midnight instead of sleeping mtsmmm. this is the work. 🫡`, mood: 'happy' },
   { t: `2 levels. 1 boss. let's go.` }
 ];
 const L1 = [
@@ -760,7 +760,7 @@ const L1 = [
 const L1WIN = [{ t: `8 stars. clean. {name} ate that 👏`, mood: 'happy' }];
 const L2 = [
   { t: `LEVEL 2: THE DRAWING 🎨\nsee that on the wall? that's the sketch you complimented. peak taste. no notes.`, mood: 'happy', spot: true },
-  { t: `he said he'd "cash you up" for it. generous? broke? both. so Mochi's bank is handling the payout 👇`, spot: true }
+  { t: `he said he'd "cash you up" for it. generous? broke? he both. so Mochi's bank is handling the payout 👇`, spot: true }
 ];
 const L2AFTER = [
   { t: `transaction successful. ID: TRUST_ME_BRO. he says the 0 is "a start" 😭`, mood: 'happy', spot: true },
